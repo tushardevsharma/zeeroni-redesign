@@ -148,6 +148,11 @@ const HeroSection = () => {
         throw new Error("Failed to submit");
       }
 
+      // Track Google Ads conversion
+      if (typeof window !== 'undefined' && (window as any).gtag_report_conversion) {
+        (window as any).gtag_report_conversion();
+      }
+
       toast.success("Consultation booked successfully! We'll contact you soon.");
       
       // Reset form
