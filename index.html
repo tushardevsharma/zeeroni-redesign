@@ -4,6 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="https://zeeroni.com/favicon.ico" type="image/x-icon" />
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17857668362"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17857668362');
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17857668362/-Fm2CP7MnN4bEIrKmcNC',
+            'value': 1.0,
+            'currency': 'INR',
+            'event_callback': callback
+        });
+        return false;
+      }
+    </script>
     <title>Zeeroni - Experience the Future of Relocation</title>
     <meta name="description" content="Intelligent moving, re-imagined for your peace of mind. Zero chaos, zero cartons, 100% ready to live. Get your free quote today." />
     <meta name="author" content="Zeeroni" />
