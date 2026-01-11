@@ -8,20 +8,24 @@ import PricingSection from "@/components/PricingSection";
 import TechnologySection from "@/components/TechnologySection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import PricingHighlight from "@/components/PricingHighlight";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      <PricingHighlight />
       <main>
         <section id="hero">
           <HeroSection />
         </section>
         <PainPointsSection />
-        <SolutionSection />
+        <section id="solution">
+          <SolutionSection />
+        </section>
+        <PricingSection />
         <StepsSection />
         <ServicesSection />
-        <PricingSection />
         <TechnologySection />
         <CTASection />
       </main>

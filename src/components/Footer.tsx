@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter } from "lucide-react";
 import zeeroniLogo from "@/assets/zeeroni-logo.png";
 
@@ -7,13 +8,15 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div>
-            <div className="flex items-center gap-2 mb-6">
+            <Link to="/" className="flex items-center gap-3 mb-6">
               <img 
                 src={zeeroniLogo} 
                 alt="Zeeroni" 
-                className="h-10 w-auto brightness-0 invert"
+                className="h-10 w-auto"
+                style={{ filter: "brightness(0) invert(1)" }}
               />
-            </div>
+              <span className="font-serif text-xl font-bold text-background">Zeeroni</span>
+            </Link>
             <p className="text-background/70 mb-6">
               Intelligent moving, re-imagined for your peace of mind. Experience the future of relocation.
             </p>
@@ -33,11 +36,11 @@ const Footer = () => {
           <div>
             <h4 className="font-serif text-lg font-semibold mb-6">Quick Links</h4>
             <ul className="space-y-3">
-              <li><a href="/about-us" className="text-background/70 hover:text-primary transition-colors">About Us</a></li>
+              <li><Link to="/about-us" className="text-background/70 hover:text-primary transition-colors">About Us</Link></li>
               <li><a href="#how-it-works" className="text-background/70 hover:text-primary transition-colors">How It Works</a></li>
               <li><a href="#services" className="text-background/70 hover:text-primary transition-colors">Services</a></li>
               <li><a href="#technology" className="text-background/70 hover:text-primary transition-colors">Technology</a></li>
-              <li><a href="/contact-us" className="text-background/70 hover:text-primary transition-colors">Contact Us</a></li>
+              <li><Link to="/contact-us" className="text-background/70 hover:text-primary transition-colors">Contact Us</Link></li>
             </ul>
           </div>
 
@@ -76,7 +79,7 @@ const Footer = () => {
             © 2026 Zeeroni. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
-            <a href="/privacy-policy" className="text-background/50 hover:text-primary transition-colors">Privacy Policy</a>
+            <Link to="/privacy-policy" className="text-background/50 hover:text-primary transition-colors">Privacy Policy</Link>
             <a href="#" className="text-background/50 hover:text-primary transition-colors">Terms of Service</a>
             <a href="#" className="text-background/50 hover:text-primary transition-colors">Cookie Policy</a>
           </div>

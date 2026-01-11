@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,12 +10,12 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { ArrowRight } from "lucide-react";
-import PricingHighlight from "@/components/PricingHighlight";
 
 const phrases = ["relocation", "moving", "settling in", "fresh starts"];
 
 const HeroSection = () => {
   const [currentPhrase, setCurrentPhrase] = useState(0);
+  const formRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -23,6 +23,32 @@ const HeroSection = () => {
     }, 3000);
     return () => clearInterval(interval);
   }, []);
+
+  const handleGetStarted = () => {
+    if (formRef.current) {
+      const rect = formRef.current.getBoundingClientRect();
+      const isInView = rect.top >= 0 && rect.bottom <= window.innerHeight;
+      
+      if (isInView) {
+        formRef.current.classList.add("ring-2", "ring-accent", "ring-offset-2");
+        setTimeout(() => {
+          formRef.current?.classList.remove("ring-2", "ring-accent", "ring-offset-2");
+        }, 2000);
+      } else {
+        formRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+        setTimeout(() => {
+          formRef.current?.classList.add("ring-2", "ring-accent", "ring-offset-2");
+          setTimeout(() => {
+            formRef.current?.classList.remove("ring-2", "ring-accent", "ring-offset-2");
+          }, 2000);
+        }, 500);
+      }
+    }
+  };
+
+  const handleLearnMore = () => {
+    document.getElementById("solution")?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <section className="relative min-h-screen flex items-center pt-24 overflow-hidden">
@@ -68,11 +94,11 @@ const HeroSection = () => {
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="text-lg px-8 py-6 group">
+              <Button size="lg" className="text-lg px-8 py-6 group" onClick={handleGetStarted}>
                 Get Started
                 <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-6">
+              <Button size="lg" variant="outline" className="text-lg px-8 py-6" onClick={handleLearnMore}>
                 Learn More
               </Button>
             </div>
@@ -93,8 +119,6 @@ const HeroSection = () => {
                 <p className="text-sm text-muted-foreground">Support</p>
               </div>
             </div>
-
-            <PricingHighlight />
           </motion.div>
 
           <motion.div
@@ -102,7 +126,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="bg-card rounded-3xl p-8 card-shadow border border-border/50">
+            <div ref={formRef} className="bg-card rounded-3xl p-8 card-shadow border border-border/50 transition-all duration-300">
               <h2 className="font-serif text-2xl font-semibold text-foreground mb-6">
                 Book a Consultation
               </h2>
