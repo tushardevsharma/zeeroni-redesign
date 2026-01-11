@@ -54,10 +54,14 @@ const Header = () => {
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
-          <Button variant="ghost" className="text-foreground">
-            About Us
-          </Button>
-          <Button>Get a Quote</Button>
+          <a href="/about-us">
+            <Button variant="ghost" className="text-foreground">
+              About Us
+            </Button>
+          </a>
+          <a href="#hero">
+            <Button>Book a Consultation</Button>
+          </a>
         </div>
 
         <button
@@ -87,7 +91,12 @@ const Header = () => {
                   {link.label}
                 </a>
               ))}
-              <Button className="mt-4 w-full">Get a Quote</Button>
+              <a href="/about-us" onClick={() => setIsMobileMenuOpen(false)}>
+                <Button variant="ghost" className="w-full">About Us</Button>
+              </a>
+              <a href="#hero">
+                <Button className="mt-2 w-full">Book a Consultation</Button>
+              </a>
             </nav>
           </motion.div>
         )}

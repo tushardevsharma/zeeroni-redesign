@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter } from "lucide-react";
+import zeeroniLogo from "@/assets/zeeroni-logo.png";
 
 const Footer = () => {
   return (
@@ -7,10 +8,11 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div>
             <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-serif font-bold text-xl">Z</span>
-              </div>
-              <span className="font-serif text-2xl font-semibold">Zeeroni</span>
+              <img 
+                src={zeeroniLogo} 
+                alt="Zeeroni" 
+                className="h-10 w-auto brightness-0 invert"
+              />
             </div>
             <p className="text-background/70 mb-6">
               Intelligent moving, re-imagined for your peace of mind. Experience the future of relocation.
@@ -31,11 +33,11 @@ const Footer = () => {
           <div>
             <h4 className="font-serif text-lg font-semibold mb-6">Quick Links</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-background/70 hover:text-primary transition-colors">About Us</a></li>
+              <li><a href="/about-us" className="text-background/70 hover:text-primary transition-colors">About Us</a></li>
               <li><a href="#how-it-works" className="text-background/70 hover:text-primary transition-colors">How It Works</a></li>
               <li><a href="#services" className="text-background/70 hover:text-primary transition-colors">Services</a></li>
               <li><a href="#technology" className="text-background/70 hover:text-primary transition-colors">Technology</a></li>
-              <li><a href="#" className="text-background/70 hover:text-primary transition-colors">Careers</a></li>
+              <li><a href="/contact-us" className="text-background/70 hover:text-primary transition-colors">Contact Us</a></li>
             </ul>
           </div>
 
@@ -55,15 +57,15 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-center gap-3 text-background/70">
                 <Phone className="w-5 h-5 text-primary" />
-                <span>+91 98765 43210</span>
+                <a href="tel:+918296099467" className="hover:text-primary transition-colors">+91 82960 99467</a>
               </li>
               <li className="flex items-center gap-3 text-background/70">
                 <Mail className="w-5 h-5 text-primary" />
-                <span>hello@zeeroni.com</span>
+                <a href="mailto:admin@zeeroni.com" className="hover:text-primary transition-colors">admin@zeeroni.com</a>
               </li>
               <li className="flex items-start gap-3 text-background/70">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
-                <span>Bangalore, India</span>
+                <span>Bengaluru, India</span>
               </li>
             </ul>
           </div>
@@ -74,7 +76,7 @@ const Footer = () => {
             © 2026 Zeeroni. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
-            <a href="#" className="text-background/50 hover:text-primary transition-colors">Privacy Policy</a>
+            <a href="/privacy-policy" className="text-background/50 hover:text-primary transition-colors">Privacy Policy</a>
             <a href="#" className="text-background/50 hover:text-primary transition-colors">Terms of Service</a>
             <a href="#" className="text-background/50 hover:text-primary transition-colors">Cookie Policy</a>
           </div>
