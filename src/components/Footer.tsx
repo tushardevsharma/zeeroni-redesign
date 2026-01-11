@@ -15,7 +15,7 @@ const Footer = () => {
                 className="h-10 w-auto"
                 style={{ filter: "brightness(0) invert(1)" }}
               />
-              <span className="font-serif text-xl font-bold text-background">Zeeroni</span>
+              <span className="font-sans text-xl font-bold text-background">Zeeroni</span>
             </Link>
             <p className="text-background/70 mb-6">
               Intelligent moving, re-imagined for your peace of mind. Experience the future of relocation.
@@ -34,7 +34,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-serif text-lg font-semibold mb-6">Quick Links</h4>
+            <h4 className="font-sans text-lg font-semibold mb-6">Quick Links</h4>
             <ul className="space-y-3">
               <li><Link to="/about-us" className="text-background/70 hover:text-primary transition-colors">About Us</Link></li>
               <li><a href="#how-it-works" className="text-background/70 hover:text-primary transition-colors">How It Works</a></li>
@@ -45,7 +45,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-serif text-lg font-semibold mb-6">Services</h4>
+            <h4 className="font-sans text-lg font-semibold mb-6">Services</h4>
             <ul className="space-y-3">
               <li><a href="#" className="text-background/70 hover:text-primary transition-colors">Residential Moving</a></li>
               <li><a href="#" className="text-background/70 hover:text-primary transition-colors">Packing & Unpacking</a></li>
@@ -56,7 +56,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-serif text-lg font-semibold mb-6">Contact Us</h4>
+            <h4 className="font-sans text-lg font-semibold mb-6">Contact Us</h4>
             <ul className="space-y-4">
               <li className="flex items-center gap-3 text-background/70">
                 <Phone className="w-5 h-5 text-primary" />
