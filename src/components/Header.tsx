@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import zeeroniLogo from "@/assets/zeeroni-logo.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,13 +33,12 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-serif font-bold text-xl">Z</span>
-          </div>
-          <span className="font-serif text-2xl font-semibold text-foreground">
-            Zeeroni
-          </span>
+        <a href="#" className="flex items-center">
+          <img 
+            src={zeeroniLogo} 
+            alt="Zeeroni" 
+            className="h-12 w-auto"
+          />
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
