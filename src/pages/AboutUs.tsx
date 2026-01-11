@@ -7,12 +7,12 @@ const AboutUs = () => {
     {
       name: "Suja Kunwar",
       role: "Co-Founder",
-      image: "https://zeeroni.com/suja.png",
+      image: "/suja.png",
     },
     {
       name: "Tushar Dev Sharma",
       role: "Co-Founder",
-      image: "https://zeeroni.com/tushar.png",
+      image: "/tushar.png",
     },
   ];
 
