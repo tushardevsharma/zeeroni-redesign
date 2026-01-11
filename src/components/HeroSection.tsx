@@ -24,26 +24,56 @@ const HeroSection = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const [formHighlight, setFormHighlight] = useState(false);
+  const [phoneError, setPhoneError] = useState("");
+  const [dateError, setDateError] = useState("");
+
   const handleGetStarted = () => {
     if (formRef.current) {
       const rect = formRef.current.getBoundingClientRect();
       const isInView = rect.top >= 0 && rect.bottom <= window.innerHeight;
       
+      const triggerHighlight = () => {
+        setFormHighlight(true);
+        setTimeout(() => setFormHighlight(false), 1500);
+      };
+
       if (isInView) {
-        formRef.current.classList.add("ring-2", "ring-accent", "ring-offset-2");
-        setTimeout(() => {
-          formRef.current?.classList.remove("ring-2", "ring-accent", "ring-offset-2");
-        }, 2000);
+        triggerHighlight();
       } else {
         formRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
-        setTimeout(() => {
-          formRef.current?.classList.add("ring-2", "ring-accent", "ring-offset-2");
-          setTimeout(() => {
-            formRef.current?.classList.remove("ring-2", "ring-accent", "ring-offset-2");
-          }, 2000);
-        }, 500);
+        setTimeout(triggerHighlight, 500);
       }
     }
+  };
+
+  const validatePhone = (value: string) => {
+    const phoneRegex = /^[6-9]\d{9}$/;
+    if (value && !phoneRegex.test(value)) {
+      setPhoneError("Please enter a valid 10-digit Indian phone number");
+      return false;
+    }
+    setPhoneError("");
+    return true;
+  };
+
+  const validateDate = (value: string) => {
+    if (value) {
+      const selectedDate = new Date(value);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      if (selectedDate < today) {
+        setDateError("Move out date cannot be in the past");
+        return false;
+      }
+    }
+    setDateError("");
+    return true;
+  };
+
+  const getTodayDate = () => {
+    const today = new Date();
+    return today.toISOString().split("T")[0];
   };
 
   const handleLearnMore = () => {
@@ -126,8 +156,15 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div ref={formRef} className="bg-card rounded-3xl p-8 card-shadow border border-border/50 transition-all duration-300">
-              <h2 className="font-serif text-2xl font-semibold text-foreground mb-6">
+            <div 
+              ref={formRef} 
+              className={`bg-card rounded-3xl p-8 card-shadow border transition-all duration-500 ${
+                formHighlight 
+                  ? "border-accent ring-4 ring-accent/30 scale-[1.02] shadow-2xl" 
+                  : "border-border/50"
+              }`}
+            >
+              <h2 className="font-sans text-2xl font-semibold text-foreground mb-6">
                 Book a Consultation
               </h2>
               
@@ -139,6 +176,7 @@ const HeroSection = () => {
                   <Input 
                     placeholder="Enter your name" 
                     className="h-12 rounded-xl"
+                    maxLength={100}
                   />
                 </div>
 
@@ -149,8 +187,11 @@ const HeroSection = () => {
                   <Input 
                     placeholder="e.g., 9876543210" 
                     type="tel"
-                    className="h-12 rounded-xl"
+                    className={`h-12 rounded-xl ${phoneError ? "border-destructive" : ""}`}
+                    maxLength={10}
+                    onChange={(e) => validatePhone(e.target.value)}
                   />
+                  {phoneError && <p className="text-destructive text-sm mt-1">{phoneError}</p>}
                 </div>
 
                 <div>
@@ -159,8 +200,11 @@ const HeroSection = () => {
                   </label>
                   <Input 
                     type="date" 
-                    className="h-12 rounded-xl"
+                    className={`h-12 rounded-xl ${dateError ? "border-destructive" : ""}`}
+                    min={getTodayDate()}
+                    onChange={(e) => validateDate(e.target.value)}
                   />
+                  {dateError && <p className="text-destructive text-sm mt-1">{dateError}</p>}
                 </div>
 
                 <div>

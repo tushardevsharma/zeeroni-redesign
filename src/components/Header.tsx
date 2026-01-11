@@ -17,6 +17,23 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleNavClick = (href: string) => {
+    setIsMobileMenuOpen(false);
+    
+    // If we're not on the home page, navigate to home first
+    if (window.location.pathname !== "/") {
+      window.location.href = "/" + href;
+      return;
+    }
+    
+    // If on home page, scroll to the section
+    const elementId = href.replace("#", "");
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const navLinks = [
     { href: "#how-it-works", label: "How It Works" },
     { href: "#services", label: "Services" },
@@ -34,24 +51,24 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3">
           <img 
             src={zeeroniLogo} 
             alt="Zeeroni" 
             className="h-10 w-auto"
           />
-          <span className="font-serif text-xl font-bold text-foreground">Zeeroni</span>
-        </a>
+          <span className="font-sans text-xl font-bold text-foreground">Zeeroni</span>
+        </Link>
 
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
+            <button
               key={link.href}
-              href={link.href}
+              onClick={() => handleNavClick(link.href)}
               className="text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium"
             >
               {link.label}
-            </a>
+            </button>
           ))}
         </nav>
 
@@ -84,14 +101,13 @@ const Header = () => {
           >
             <nav className="container mx-auto px-6 py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
-                <a
+                <button
                   key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-foreground font-medium py-2"
+                  onClick={() => handleNavClick(link.href)}
+                  className="text-foreground font-medium py-2 text-left"
                 >
                   {link.label}
-                </a>
+                </button>
               ))}
               <Link to="/about-us" onClick={() => setIsMobileMenuOpen(false)}>
                 <Button variant="ghost" className="w-full">About Us</Button>
