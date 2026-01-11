@@ -30,7 +30,10 @@ const Header = () => {
     const elementId = href.replace("#", "");
     const element = document.getElementById(elementId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      // Use setTimeout to ensure mobile menu closes before scrolling
+      setTimeout(() => {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
     }
   };
 
@@ -38,7 +41,6 @@ const Header = () => {
     { href: "#how-it-works", label: "How It Works" },
     { href: "#services", label: "Services" },
     { href: "#technology", label: "Technology" },
-    { href: "#contact", label: "Contact" },
   ];
 
   return (
@@ -78,9 +80,14 @@ const Header = () => {
               About Us
             </Button>
           </Link>
-          <a href="#hero">
+          <Link to="/contact-us">
+            <Button variant="ghost" className="text-foreground">
+              Contact Us
+            </Button>
+          </Link>
+          <button onClick={() => handleNavClick("#hero")}>
             <Button>Book a Consultation</Button>
-          </a>
+          </button>
         </div>
 
         <button
@@ -110,11 +117,14 @@ const Header = () => {
                 </button>
               ))}
               <Link to="/about-us" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button variant="ghost" className="w-full">About Us</Button>
+                <Button variant="ghost" className="w-full justify-start">About Us</Button>
               </Link>
-              <a href="#hero">
+              <Link to="/contact-us" onClick={() => setIsMobileMenuOpen(false)}>
+                <Button variant="ghost" className="w-full justify-start">Contact Us</Button>
+              </Link>
+              <button onClick={() => handleNavClick("#hero")}>
                 <Button className="mt-2 w-full">Book a Consultation</Button>
-              </a>
+              </button>
             </nav>
           </motion.div>
         )}
