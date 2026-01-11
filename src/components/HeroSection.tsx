@@ -10,6 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { ArrowRight } from "lucide-react";
+import PricingHighlight from "@/components/PricingHighlight";
 
 const phrases = ["relocation", "moving", "settling in", "fresh starts"];
 
@@ -92,6 +93,8 @@ const HeroSection = () => {
                 <p className="text-sm text-muted-foreground">Support</p>
               </div>
             </div>
+
+            <PricingHighlight />
           </motion.div>
 
           <motion.div
@@ -101,7 +104,7 @@ const HeroSection = () => {
           >
             <div className="bg-card rounded-3xl p-8 card-shadow border border-border/50">
               <h2 className="font-serif text-2xl font-semibold text-foreground mb-6">
-                Get a Free Quote
+                Book a Consultation
               </h2>
               
               <form className="space-y-5">
@@ -155,7 +158,7 @@ const HeroSection = () => {
                 </div>
 
                 <Button className="w-full h-12 text-lg rounded-xl mt-2">
-                  Get Quote
+                  Book Consultation
                 </Button>
               </form>
             </div>

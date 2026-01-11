@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { User, Users, Shield } from "lucide-react";
+import { User, Users, Shield, Package } from "lucide-react";
 
 const solutions = [
   {
@@ -19,6 +19,12 @@ const solutions = [
     title: "Transparent Pricing",
     description: "The price we quote is the price you pay. No surprises, no hidden fees. Ever.",
     image: "https://images.unsplash.com/photo-1564669722947-c89159202d19?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    icon: Package,
+    title: "Premium Packaging",
+    description: "High-quality packaging materials sourced from the best suppliers ensure your belongings are protected throughout the move.",
+    image: "https://images.unsplash.com/photo-1607166452427-7e4477079cb9?q=80&w=800&auto=format&fit=crop",
   },
 ];
 
@@ -43,7 +49,7 @@ const SolutionSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {solutions.map((solution, index) => (
             <motion.div
               key={solution.title}
