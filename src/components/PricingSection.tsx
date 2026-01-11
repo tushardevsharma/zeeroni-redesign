@@ -55,7 +55,9 @@ const PricingSection = () => {
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-medium mb-6">
             <MapPin size={16} />
-            Currently serving Bangalore only
+            <span>Intra-city moves within</span>
+            <span className="font-bold text-primary-background">Bangalore</span>
+            <span>only</span>
           </span>
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-4">
             Simple, Transparent <span className="text-gradient">Pricing</span>

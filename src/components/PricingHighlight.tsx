@@ -21,6 +21,7 @@ const PricingHighlight = () => {
             <MapPin size={16} className="text-accent" />
             <span>Intra-city moves within</span>
             <span className="font-semibold text-primary-foreground">Bangalore</span>
+            <span>only</span>
           </div>
           
           <div className="hidden sm:block w-px h-5 bg-primary-foreground/20" />
