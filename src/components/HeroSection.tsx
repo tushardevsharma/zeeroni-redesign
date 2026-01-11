@@ -331,12 +331,12 @@ const HeroSection = () => {
 
             <div className="flex items-center gap-4 sm:gap-8 pt-4 flex-wrap">
               <div className="text-center">
-                <p className="text-2xl sm:text-3xl font-bold text-foreground">5000+</p>
+                <p className="text-2xl sm:text-3xl font-bold text-foreground">50+</p>
                 <p className="text-xs sm:text-sm text-muted-foreground">Moves Completed</p>
               </div>
               <div className="w-px h-10 sm:h-12 bg-border" />
               <div className="text-center">
-                <p className="text-2xl sm:text-3xl font-bold text-foreground">98%</p>
+                <p className="text-2xl sm:text-3xl font-bold text-foreground">100%</p>
                 <p className="text-xs sm:text-sm text-muted-foreground">Satisfaction Rate</p>
               </div>
               <div className="w-px h-10 sm:h-12 bg-border" />
