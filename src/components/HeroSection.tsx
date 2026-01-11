@@ -9,13 +9,18 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
+import { useLeadMetadata } from "@/hooks/useLeadMetadata";
+import { toast } from "sonner";
 
 const phrases = ["relocation", "moving", "settling in", "fresh starts"];
+
+const API_ENDPOINT = "https://tk3mh6lkmdnyornb6bhbhb6wru0brckv.lambda-url.ap-south-1.on.aws/api/marketing/leads";
 
 const HeroSection = () => {
   const [currentPhrase, setCurrentPhrase] = useState(0);
   const formRef = useRef<HTMLDivElement>(null);
+  const metadata = useLeadMetadata();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -27,6 +32,13 @@ const HeroSection = () => {
   const [formHighlight, setFormHighlight] = useState(false);
   const [phoneError, setPhoneError] = useState("");
   const [dateError, setDateError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Form state
+  const [name, setName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [moveOutDate, setMoveOutDate] = useState("");
+  const [moveSize, setMoveSize] = useState("");
 
   const handleGetStarted = () => {
     if (formRef.current) {
@@ -80,6 +92,77 @@ const HeroSection = () => {
     document.getElementById("solution")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Validate all fields
+    if (!name.trim()) {
+      toast.error("Please enter your name");
+      return;
+    }
+    if (!validatePhone(phoneNumber)) {
+      return;
+    }
+    if (!moveOutDate) {
+      toast.error("Please select a move out date");
+      return;
+    }
+    if (!validateDate(moveOutDate)) {
+      return;
+    }
+    if (!moveSize) {
+      toast.error("Please select a move size");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    const payload = {
+      name: name.trim(),
+      phoneNumber,
+      moveDetails: {
+        desiredMoveOutDate: moveOutDate,
+        moveSize: moveSize.toUpperCase(),
+      },
+      metadata: {
+        ipAddress: metadata.ipAddress,
+        isMobile: metadata.isMobile,
+        platform: metadata.platform,
+        url: metadata.url,
+        utmSource: metadata.utmSource,
+        utmCampaign: metadata.utmCampaign,
+      },
+    };
+
+    try {
+      const response = await fetch(API_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit");
+      }
+
+      toast.success("Consultation booked successfully! We'll contact you soon.");
+      
+      // Reset form
+      setName("");
+      setPhoneNumber("");
+      setMoveOutDate("");
+      setMoveSize("");
+    } catch (error) {
+      toast.error("Something went wrong. Please try again.");
+      console.error("Form submission error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center pt-24 overflow-hidden">
       {/* Background gradient */}
@@ -110,7 +193,7 @@ const HeroSection = () => {
                 Book a Consultation
               </h2>
               
-              <form className="space-y-5">
+              <form className="space-y-5" onSubmit={handleSubmit}>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Name
@@ -119,6 +202,9 @@ const HeroSection = () => {
                     placeholder="Enter your name" 
                     className="h-12 rounded-xl"
                     maxLength={100}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    disabled={isSubmitting}
                   />
                 </div>
 
@@ -131,7 +217,12 @@ const HeroSection = () => {
                     type="tel"
                     className={`h-12 rounded-xl ${phoneError ? "border-destructive" : ""}`}
                     maxLength={10}
-                    onChange={(e) => validatePhone(e.target.value)}
+                    value={phoneNumber}
+                    onChange={(e) => {
+                      setPhoneNumber(e.target.value);
+                      validatePhone(e.target.value);
+                    }}
+                    disabled={isSubmitting}
                   />
                   {phoneError && <p className="text-destructive text-sm mt-1">{phoneError}</p>}
                 </div>
@@ -144,7 +235,12 @@ const HeroSection = () => {
                     type="date" 
                     className={`h-12 rounded-xl ${dateError ? "border-destructive" : ""}`}
                     min={getTodayDate()}
-                    onChange={(e) => validateDate(e.target.value)}
+                    value={moveOutDate}
+                    onChange={(e) => {
+                      setMoveOutDate(e.target.value);
+                      validateDate(e.target.value);
+                    }}
+                    disabled={isSubmitting}
                   />
                   {dateError && <p className="text-destructive text-sm mt-1">{dateError}</p>}
                 </div>
@@ -153,7 +249,7 @@ const HeroSection = () => {
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Move Size
                   </label>
-                  <Select>
+                  <Select value={moveSize} onValueChange={setMoveSize} disabled={isSubmitting}>
                     <SelectTrigger className="h-12 rounded-xl">
                       <SelectValue placeholder="Select Move Size" />
                     </SelectTrigger>
@@ -167,8 +263,19 @@ const HeroSection = () => {
                   </Select>
                 </div>
 
-                <Button className="w-full h-12 text-lg rounded-xl mt-2">
-                  Book Consultation
+                <Button 
+                  type="submit" 
+                  className="w-full h-12 text-lg rounded-xl mt-2"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                      Submitting...
+                    </>
+                  ) : (
+                    "Book Consultation"
+                  )}
                 </Button>
               </form>
             </div>
