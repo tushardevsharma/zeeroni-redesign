@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
@@ -49,21 +50,25 @@ const CTASection = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button 
-                size="lg" 
-                variant="secondary"
-                className="text-lg px-8 py-6 group bg-primary-foreground text-primary hover:bg-primary-foreground/90"
-              >
-                Get Your Free Quote
-                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline"
-                className="text-lg px-8 py-6 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
-              >
-                Contact Us
-              </Button>
+              <a href="#hero">
+                <Button 
+                  size="lg" 
+                  variant="secondary"
+                  className="text-lg px-8 py-6 group bg-primary-foreground text-primary hover:bg-primary-foreground/90"
+                >
+                  Book a Consultation
+                  <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </a>
+              <Link to="/contact-us">
+                <Button 
+                  size="lg" 
+                  variant="outline"
+                  className="text-lg px-8 py-6 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10"
+                >
+                  Contact Us
+                </Button>
+              </Link>
             </div>
           </div>
         </motion.div>
