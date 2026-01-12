@@ -26,10 +26,6 @@ const ContactUs = () => {
     },
   ];
 
-  const handleReachOutClick = () => {
-    document.getElementById("our-details")?.scrollIntoView({ behavior: "smooth", block: "center" });
-  };
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -47,9 +43,6 @@ const ContactUs = () => {
             <p className="text-xl text-muted-foreground mb-8">
               We'd love to hear from you!
             </p>
-            <Button onClick={handleReachOutClick} size="lg" className="text-lg px-8 py-6">
-              Reach out to our team
-            </Button>
           </motion.div>
 
           <motion.div
