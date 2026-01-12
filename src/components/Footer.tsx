@@ -13,7 +13,6 @@ const Footer = () => {
                 src={zeeroniLogo} 
                 alt="Zeeroni" 
                 className="h-10 w-auto"
-                style={{ filter: "brightness(0) invert(1)" }}
               />
               <span className="font-sans text-xl font-bold text-background">Zeeroni</span>
             </Link>
