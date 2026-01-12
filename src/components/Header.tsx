@@ -52,7 +52,11 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3" onClick={() => {
+          if (location.pathname === "/") {
+            handleNavClick("#hero");
+          }
+        }}>
           <img 
             src={zeeroniLogo} 
             alt="Zeeroni" 

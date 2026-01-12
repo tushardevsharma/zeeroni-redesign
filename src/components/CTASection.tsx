@@ -30,11 +30,6 @@ const CTASection = () => {
               Zeeroni Happiness Guarantee
             </h2>
             
-            <p className="text-xl text-primary-foreground/80 mb-8">
-              If you aren't completely satisfied with our moving service, we will refund 100% of your investment.
-              No hoops to jump through, no awkward questions.
-            </p>
-
             <div className="flex flex-wrap justify-center gap-3 mb-10">
               {guarantees.map((guarantee, index) => (
                 <motion.div
@@ -50,6 +45,11 @@ const CTASection = () => {
                 </motion.div>
               ))}
             </div>
+
+            <p className="text-xl text-primary-foreground/80 mb-8">
+              If you aren't completely satisfied with our moving service, we will refund 100% of your investment.
+              No hoops to jump through, no awkward questions.
+            </p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a href="#hero">
