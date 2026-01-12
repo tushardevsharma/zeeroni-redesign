@@ -133,16 +133,17 @@ const PricingSection = () => {
                   </li>
                 ))}
               </ul>
-              <Button
-                className={`w-full ${
-                  plan.popular
-                    ? "bg-accent hover:bg-accent/90 text-accent-foreground"
-                    : ""
-                }`}
-                variant={plan.popular ? "default" : "outline"}
-              >
-                Get Started
-              </Button>
+              <a href="#hero">
+                <Button
+                  className={`w-full ${plan.popular
+                      ? "bg-accent hover:bg-accent/90 text-accent-foreground"
+                      : ""
+                    }`}
+                  variant={plan.popular ? "default" : "outline"}
+                >
+                  Get Started
+                </Button>
+              </a>
             </motion.div>
           ))}
         </div>

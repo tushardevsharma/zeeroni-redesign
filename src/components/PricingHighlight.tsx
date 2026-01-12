@@ -34,16 +34,16 @@ const PricingHighlight = () => {
             {plans.map((plan, index) => (
               <div
                 key={plan.name}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm transition-all ${
+                className={`flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-full text-sm transition-all ${
                   index === 1 
                     ? "bg-accent text-accent-foreground font-semibold scale-105 shadow-md" 
                     : "bg-primary-foreground/15 text-primary-foreground hover:bg-primary-foreground/25"
                 }`}
               >
                 <span className="text-xs sm:text-sm">{plan.name}</span>
-                <div className="flex flex-col sm:flex-row items-center sm:items-baseline gap-0 sm:gap-1">
+                <div className="flex items-center gap-1">
                   {plan.originalPrice && (
-                    <span className="text-xs line-through text-primary-foreground/70">
+                    <span className="text-[10px] line-through text-primary-foreground/70">
                       ₹{plan.originalPrice}
                     </span>
                   )}
