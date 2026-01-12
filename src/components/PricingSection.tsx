@@ -6,7 +6,8 @@ const PricingSection = () => {
   const plans = [
     {
       name: "1 BHK",
-      price: "8,000",
+      price: "6,000",
+      originalPrice: "12,000", // Added original price
       description: "Perfect for studio apartments and small homes",
       features: [
         "Professional packing",
@@ -17,7 +18,8 @@ const PricingSection = () => {
     },
     {
       name: "2 BHK",
-      price: "12,000",
+      price: "10,000",
+      originalPrice: "20,000", // Added original price
       description: "Ideal for families and medium-sized homes",
       features: [
         "Professional packing",
@@ -30,7 +32,8 @@ const PricingSection = () => {
     },
     {
       name: "3 BHK",
-      price: "16,000",
+      price: "15,000",
+      originalPrice: "30,000", // Added original price
       description: "Comprehensive solution for larger homes",
       features: [
         "Professional packing",
@@ -62,8 +65,11 @@ const PricingSection = () => {
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-4">
             Simple, Transparent <span className="text-gradient">Pricing</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-2">
             No hidden fees, no surprises. Choose the plan that fits your home size.
+          </p>
+          <p className="text-primary text-sm font-medium max-w-2xl mx-auto">
+            * Introductory offer, limited time only.
           </p>
         </motion.div>
 
@@ -96,7 +102,14 @@ const PricingSection = () => {
               }`}>
                 {plan.description}
               </p>
-              <div className="mb-6">
+              <div className="mb-6 flex flex-col items-center">
+                {plan.originalPrice && (
+                  <span className={`text-xl line-through ${
+                    plan.popular ? "text-primary-foreground/70" : "text-muted-foreground"
+                  }`}>
+                    ₹{plan.originalPrice}
+                  </span>
+                )}
                 <span className={`font-serif text-5xl font-bold ${
                   plan.popular ? "text-primary-foreground" : "text-foreground"
                 }`}>
@@ -105,7 +118,7 @@ const PricingSection = () => {
                 <span className={`text-sm ${
                   plan.popular ? "text-primary-foreground/80" : "text-muted-foreground"
                 }`}>
-                  {" "}starting
+                  {" "}
                 </span>
               </div>
               <ul className="space-y-3 mb-8">

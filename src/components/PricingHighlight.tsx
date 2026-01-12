@@ -3,9 +3,9 @@ import { MapPin, ArrowRight } from "lucide-react";
 
 const PricingHighlight = () => {
   const plans = [
-    { name: "1 BHK", price: "8K" },
-    { name: "2 BHK", price: "12K" },
-    { name: "3 BHK", price: "16K" },
+    { name: "1 BHK", price: "6K", originalPrice: "12K" },
+    { name: "2 BHK", price: "10K", originalPrice: "20K" },
+    { name: "3 BHK", price: "15K", originalPrice: "30K" },
   ];
 
   return (
@@ -25,6 +25,10 @@ const PricingHighlight = () => {
           </div>
           
           <div className="hidden sm:block w-px h-5 bg-primary-foreground/20" />
+          <span className="text-sm font-medium text-accent-foreground bg-accent px-2 py-0.5 rounded-full">
+            Introductory offer, limited time only
+          </span>
+          <div className="hidden sm:block w-px h-5 bg-primary-foreground/20" />
           
           <div className="flex items-center gap-2 sm:gap-3">
             {plans.map((plan, index) => (
@@ -37,7 +41,14 @@ const PricingHighlight = () => {
                 }`}
               >
                 <span className="text-xs sm:text-sm">{plan.name}</span>
-                <span className="font-bold">₹{plan.price}</span>
+                <div className="flex flex-col sm:flex-row items-center sm:items-baseline gap-0 sm:gap-1">
+                  {plan.originalPrice && (
+                    <span className="text-xs line-through text-primary-foreground/70">
+                      ₹{plan.originalPrice}
+                    </span>
+                  )}
+                  <span className="font-bold">₹{plan.price}</span>
+                </div>
               </div>
             ))}
           </div>
