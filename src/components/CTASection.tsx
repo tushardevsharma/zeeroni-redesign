@@ -29,11 +29,13 @@ const CTASection = () => {
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
               Zeeroni Happiness Guarantee
             </h2>
-            <p className="text-xl text-primary-foreground/80 mb-10">
-              Ready to experience moving the way it should be? Get your free, no-obligation quote today.
+            
+            <p className="text-xl text-primary-foreground/80 mb-8">
+              If you aren't completely satisfied with our moving service, we will refund 100% of your investment.
+              No hoops to jump through, no awkward questions.
             </p>
 
-            <div className="flex flex-wrap justify-center gap-4 mb-10">
+            <div className="flex flex-wrap justify-center gap-3 mb-10">
               {guarantees.map((guarantee, index) => (
                 <motion.div
                   key={guarantee}
@@ -49,7 +51,7 @@ const CTASection = () => {
               ))}
             </div>
 
-            <div className="flex justify-center">
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a href="#hero">
                 <Button 
                   size="lg" 
@@ -60,18 +62,14 @@ const CTASection = () => {
                   <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </Button>
               </a>
+              
+              <Button variant="outline" size="lg" className="text-lg px-8 py-6 group border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
+                <Link to="/zeeroni-happiness-guarantee" className="flex items-center justify-center">
+                  Learn More
+                  <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
             </div>
-            <p className="text-xl text-primary-foreground/80 mb-4">
-              If you aren't completely satisfied with our moving service, we will refund 100% of your investment.
-              No hoops to jump through, no awkward questions - just
-            </p>
-            
-            <Button variant="secondary" size="lg" className="w-full sm:w-auto text-lg px-8 py-6 group bg-primary-foreground text-primary hover:bg-primary-foreground/90 mb-10" asChild>
-              <Link to="/zeeroni-happiness-guarantee" className="flex items-center justify-center">
-                Reach out
-                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
           </div>
         </motion.div>
       </div>
