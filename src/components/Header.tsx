@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,6 +8,8 @@ import zeeroniLogo from "@/assets/zeeroni-logo.png";
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,18 +21,15 @@ const Header = () => {
 
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
-    
-    // If we're not on the home page, navigate to home first
-    if (window.location.pathname !== "/") {
-      window.location.href = "/" + href;
+
+    if (location.pathname !== "/") {
+      navigate("/" + href);
       return;
     }
-    
-    // If on home page, scroll to the section
+
     const elementId = href.replace("#", "");
     const element = document.getElementById(elementId);
     if (element) {
-      // Use setTimeout to ensure mobile menu closes before scrolling
       setTimeout(() => {
         element.scrollIntoView({ behavior: "smooth", block: "start" });
       }, 100);

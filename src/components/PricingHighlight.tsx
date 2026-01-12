@@ -54,10 +54,10 @@ const PricingHighlight = () => {
           </div>
 
           <a 
-            href="#pricing" 
+            href="#contact" 
             className="flex items-center gap-1 text-sm text-accent hover:text-accent/80 transition-colors font-medium"
           >
-            View Details
+            Our Happiness Guarantee
             <ArrowRight size={14} />
           </a>
         </div>
