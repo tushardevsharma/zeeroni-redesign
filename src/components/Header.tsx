@@ -22,23 +22,30 @@ const Header = () => {
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
 
-    if (location.pathname !== "/") {
-      navigate("/" + href);
-      return;
-    }
+    if (href.startsWith("#")) {
+      // Handle in-page anchors
+      if (location.pathname !== "/") {
+        navigate("/" + href);
+        return;
+      }
 
-    const elementId = href.replace("#", "");
-    const element = document.getElementById(elementId);
-    if (element) {
-      setTimeout(() => {
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 100);
+      const elementId = href.replace("#", "");
+      const element = document.getElementById(elementId);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 100);
+      }
+    } else {
+      // Handle full page links
+      navigate(href);
     }
   };
 
   const navLinks = [
     { href: "#how-it-works", label: "How It Works" },
     { href: "#services", label: "Services" },
+    { href: "/happiness-guarantee", label: "Happiness Guarantee" },
     { href: "#technology", label: "Technology" },
   ];
 
