@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const steps = [
   {
     number: "01",
-    title: "Book a Consultation",
+    title: "Book a Move",
     description: "Tell us about your move. We'll create a detailed, no-obligation plan and quote tailored to you.",
   },
   {

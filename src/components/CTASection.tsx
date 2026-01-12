@@ -5,7 +5,7 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 const guarantees = [
   "100% Transparent Pricing",
   "Fully Settled on Day One",
-  "Dedicated Move Consultant",
+  "Dedicated Move Lead",
   "Insured & Vetted Crews",
 ];
 
@@ -28,6 +28,11 @@ const CTASection = () => {
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
               The Zeeroni Guarantee
             </h2>
+            <p className="text-xl text-primary-foreground/80 mb-10">
+              We treat your belongings as our own and your time as our most valuable asset.
+              Our promise is a seamless, stress-free relocation, backed by a commitment to quality, transparency, and accountability.
+              If you're not happy, we'll make it right.
+            </p>
             <p className="text-xl text-primary-foreground/80 mb-10">
               Ready to experience moving the way it should be? Get your free, no-obligation quote today.
             </p>
@@ -55,7 +60,7 @@ const CTASection = () => {
                   variant="secondary"
                   className="text-lg px-8 py-6 group bg-primary-foreground text-primary hover:bg-primary-foreground/90"
                 >
-                  Book a Consultation
+                  Book Now
                   <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </Button>
               </a>

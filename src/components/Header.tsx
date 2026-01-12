@@ -86,7 +86,7 @@ const Header = () => {
             </Button>
           </Link>
           <button onClick={() => handleNavClick("#hero")}>
-            <Button>Book a Consultation</Button>
+            <Button>Book Now</Button>
           </button>
         </div>
 

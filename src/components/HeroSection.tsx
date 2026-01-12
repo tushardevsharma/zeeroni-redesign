@@ -12,6 +12,7 @@ import {
 import { ArrowRight, Loader2 } from "lucide-react";
 import { useLeadMetadata } from "@/hooks/useLeadMetadata";
 import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
 
 const phrases = ["relocation", "moving", "settling in", "fresh starts"];
 
@@ -33,6 +34,7 @@ const HeroSection = () => {
   const [phoneError, setPhoneError] = useState("");
   const [dateError, setDateError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const navigate = useNavigate();
 
   // Form state
   const [name, setName] = useState("");
@@ -89,7 +91,7 @@ const HeroSection = () => {
   };
 
   const handleLearnMore = () => {
-    document.getElementById("solution")?.scrollIntoView({ behavior: "smooth" });
+    navigate("/about-us");
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -195,7 +197,7 @@ const HeroSection = () => {
               }`}
             >
               <h2 className="font-sans text-2xl font-semibold text-foreground mb-6">
-                Book a Consultation
+                Book Now
               </h2>
               
               <form className="space-y-5" onSubmit={handleSubmit}>
@@ -279,7 +281,7 @@ const HeroSection = () => {
                       Submitting...
                     </>
                   ) : (
-                    "Book Consultation"
+                    "Book Now"
                   )}
                 </Button>
               </form>
@@ -325,7 +327,7 @@ const HeroSection = () => {
                 <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Button>
               <Button size="lg" variant="outline" className="text-lg px-8 py-6" onClick={handleLearnMore}>
-                Learn More
+                About Us
               </Button>
             </div>
 
