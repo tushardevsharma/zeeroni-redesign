@@ -62,10 +62,13 @@ const CTASection = () => {
                   <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </Button>
               </a>
-              
-              <Button variant="outline" size="lg" className="text-lg px-8 py-6 group border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
-                <Link to="/zeeroni-happiness-guarantee" className="flex items-center justify-center">
-                  Learn More
+              <Button
+                size="lg"
+                className="text-lg px-8 py-6 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+                asChild
+              >
+                <Link to="/happiness-guarantee" className="flex items-center justify-center">
+                  Refund Request
                   <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
