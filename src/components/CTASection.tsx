@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const guarantees = [
   "100% Transparent Pricing",
@@ -26,13 +27,8 @@ const CTASection = () => {
           
           <div className="relative z-10 max-w-3xl mx-auto text-center">
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
-              The Zeeroni Guarantee
+              Zeeroni Happiness Guarantee
             </h2>
-            <p className="text-xl text-primary-foreground/80 mb-10">
-              We treat your belongings as our own and your time as our most valuable asset.
-              Our promise is a seamless, stress-free relocation, backed by a commitment to quality, transparency, and accountability.
-              If you're not happy, we'll make it right.
-            </p>
             <p className="text-xl text-primary-foreground/80 mb-10">
               Ready to experience moving the way it should be? Get your free, no-obligation quote today.
             </p>
@@ -65,6 +61,17 @@ const CTASection = () => {
                 </Button>
               </a>
             </div>
+            <p className="text-xl text-primary-foreground/80 mb-4">
+              If you aren't completely satisfied with our moving service, we will refund 100% of your investment.
+              No hoops to jump through, no awkward questions - just
+            </p>
+            
+            <Button variant="secondary" size="lg" className="w-full sm:w-auto text-lg px-8 py-6 group bg-primary-foreground text-primary hover:bg-primary-foreground/90 mb-10" asChild>
+              <Link to="/zeeroni-happiness-guarantee" className="flex items-center justify-center">
+                Reach out
+                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
           </div>
         </motion.div>
       </div>

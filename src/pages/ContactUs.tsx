@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button"; // Import Button component
 
 const ContactUs = () => {
   const contactDetails = [
@@ -25,6 +26,10 @@ const ContactUs = () => {
     },
   ];
 
+  const handleReachOutClick = () => {
+    document.getElementById("our-details")?.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -39,9 +44,12 @@ const ContactUs = () => {
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
               Contact Us
             </h1>
-            <p className="text-xl text-muted-foreground">
-              We'd love to hear from you! Please reach out to us using the contact details provided.
+            <p className="text-xl text-muted-foreground mb-8">
+              We'd love to hear from you!
             </p>
+            <Button onClick={handleReachOutClick} size="lg" className="text-lg px-8 py-6">
+              Reach out to our team
+            </Button>
           </motion.div>
 
           <motion.div
@@ -50,7 +58,7 @@ const ContactUs = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="max-w-2xl mx-auto"
           >
-            <div className="bg-card rounded-3xl p-8 md:p-12 border border-border/50 card-shadow">
+            <div id="our-details" className="bg-card rounded-3xl p-8 md:p-12 border border-border/50 card-shadow">
               <h2 className="font-serif text-2xl font-semibold text-foreground mb-8 text-center">
                 Our Details
               </h2>
