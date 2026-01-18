@@ -84,6 +84,12 @@ const ContactUs = () => {
                   </motion.div>
                 ))}
               </div>
+
+              <div className="mt-8 pt-6 border-t border-border/50 text-center">
+                <p className="text-sm text-muted-foreground">
+                  Zeeroni is a product of <span className="font-medium text-foreground">Khar Meets Gundruk Tech Private Limited</span>
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>

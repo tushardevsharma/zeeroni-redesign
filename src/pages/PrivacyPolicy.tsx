@@ -101,9 +101,10 @@ const PrivacyPolicy = () => {
                 <h2 className="font-serif text-2xl font-semibold text-foreground mb-4">
                   Contact
                 </h2>
-                <p className="text-foreground font-medium mb-4">Zeeroni</p>
+                <p className="text-foreground font-medium mb-2">Zeeroni</p>
+                <p className="text-sm text-muted-foreground mb-4">A product of Khar Meets Gundruk Tech Private Limited</p>
                 <div className="space-y-2 text-muted-foreground">
-                  <p><strong>Phone:</strong> +91 7829046000</p>
+                  <p><strong>Phone:</strong> +91 82960 99467</p>
                   <p><strong>Email:</strong> admin@zeeroni.com</p>
                 </div>
               </section>
