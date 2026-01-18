@@ -38,11 +38,9 @@ const ContactUs = () => {
             className="max-w-4xl mx-auto text-center mb-16"
           >
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              Contact Us
+              <span className="text-gradient">Contact Us</span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-8">
-              We'd love to hear from you!
-            </p>
+            <p className="text-xl text-muted-foreground mb-8">We'd love to hear from you!</p>
           </motion.div>
 
           <motion.div
@@ -52,10 +50,8 @@ const ContactUs = () => {
             className="max-w-2xl mx-auto"
           >
             <div id="our-details" className="bg-card rounded-3xl p-8 md:p-12 border border-border/50 card-shadow">
-              <h2 className="font-serif text-2xl font-semibold text-foreground mb-8 text-center">
-                Our Details
-              </h2>
-              
+              <h2 className="font-serif text-2xl font-semibold text-foreground mb-8 text-center">Our Details</h2>
+
               <div className="space-y-6">
                 {contactDetails.map((detail, index) => (
                   <motion.div
@@ -71,7 +67,7 @@ const ContactUs = () => {
                     <div>
                       <p className="text-sm text-muted-foreground mb-1">{detail.label}</p>
                       {detail.href ? (
-                        <a 
+                        <a
                           href={detail.href}
                           className="text-lg font-medium text-foreground hover:text-accent transition-colors"
                         >
@@ -87,7 +83,8 @@ const ContactUs = () => {
 
               <div className="mt-8 pt-6 border-t border-border/50 text-center">
                 <p className="text-sm text-muted-foreground">
-                  Zeeroni is a product of <span className="font-medium text-foreground">Khar Meets Gundruk Tech Private Limited</span>
+                  Zeeroni is a product of{" "}
+                  <span className="font-medium text-foreground">Khar Meets Gundruk Tech Private Limited</span>
                 </p>
               </div>
             </div>
