@@ -75,9 +75,10 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-background/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-background/50 text-sm">
-            © 2026 Zeeroni. All rights reserved.
-          </p>
+          <div className="text-background/50 text-sm">
+            <p>© 2026 Zeeroni. All rights reserved.</p>
+            <p className="text-xs mt-1">A product of Khar Meets Gundruk Tech Private Limited</p>
+          </div>
           <div className="flex gap-6 text-sm">
             <Link to="/privacy-policy" className="text-background/50 hover:text-primary transition-colors">Privacy Policy</Link>
             <a href="#" className="text-background/50 hover:text-primary transition-colors">Terms of Service</a>
