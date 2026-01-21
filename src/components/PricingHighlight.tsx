@@ -43,7 +43,7 @@ const PricingHighlight = () => {
                 <span className="text-xs sm:text-sm">{plan.name}</span>
                 <div className="flex flex-col items-center">
                   {plan.originalPrice && (
-                    <span className="text-[15px] line-through text-primary-foreground/70">₹{plan.originalPrice}</span>
+                    <span className="text-[12px] line-through text-primary-foreground/70">₹{plan.originalPrice}</span>
                   )}
                   <span className="font-bold text-xs sm:text-sm">₹{plan.price}</span>
                 </div>
