@@ -3,9 +3,9 @@ import { MapPin, ArrowRight } from "lucide-react";
 
 const PricingHighlight = () => {
   const plans = [
-    { name: "1 BHK", price: "6K", originalPrice: "12K" },
-    { name: "2 BHK", price: "10K", originalPrice: "20K" },
-    { name: "3 BHK", price: "15K", originalPrice: "30K" },
+    { name: "1 BHK", price: "9K", originalPrice: "14K" },
+    { name: "2 BHK", price: "14K", originalPrice: "24K" },
+    { name: "3 BHK", price: "21K", originalPrice: "35K" },
   ];
 
   return (
@@ -23,29 +23,27 @@ const PricingHighlight = () => {
             <span className="font-semibold text-primary-foreground">Bangalore</span>
             <span>only</span>
           </div>
-          
+
           <div className="hidden sm:block w-px h-5 bg-primary-foreground/20" />
           <span className="text-sm font-medium text-accent-foreground bg-accent px-2 py-0.5 rounded-full">
             Introductory offer, limited time only
           </span>
           <div className="hidden sm:block w-px h-5 bg-primary-foreground/20" />
-          
+
           <div className="flex items-center gap-2 sm:gap-3">
             {plans.map((plan, index) => (
               <div
                 key={plan.name}
                 className={`flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-full text-sm transition-all ${
-                  index === 1 
-                    ? "bg-accent text-accent-foreground font-semibold scale-105 shadow-md" 
+                  index === 1
+                    ? "bg-accent text-accent-foreground font-semibold scale-105 shadow-md"
                     : "bg-primary-foreground/15 text-primary-foreground hover:bg-primary-foreground/25"
                 }`}
               >
                 <span className="text-xs sm:text-sm">{plan.name}</span>
                 <div className="flex items-center gap-1">
                   {plan.originalPrice && (
-                    <span className="text-[10px] line-through text-primary-foreground/70">
-                      ₹{plan.originalPrice}
-                    </span>
+                    <span className="text-[10px] line-through text-primary-foreground/70">₹{plan.originalPrice}</span>
                   )}
                   <span className="font-bold">₹{plan.price}</span>
                 </div>
@@ -53,8 +51,8 @@ const PricingHighlight = () => {
             ))}
           </div>
 
-          <a 
-            href="#contact" 
+          <a
+            href="#contact"
             className="flex items-center gap-1 text-sm text-accent hover:text-accent/80 transition-colors font-medium"
           >
             Our Happiness Guarantee
