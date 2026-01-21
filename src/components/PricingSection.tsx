@@ -9,12 +9,7 @@ const PricingSection = () => {
       price: "9,000",
       originalPrice: "14,000",
       description: "Perfect for studio apartments and small homes",
-      features: [
-        "Professional packing",
-        "Safe transportation",
-        "Unpacking & setup",
-        "Insurance coverage",
-      ],
+      features: ["Professional packing", "Safe transportation", "Unpacking & setup", "Insurance coverage"],
     },
     {
       name: "2 BHK",
@@ -32,7 +27,7 @@ const PricingSection = () => {
     },
     {
       name: "3 BHK",
-      price: "19,000",
+      price: "21,000",
       originalPrice: "35,000",
       description: "Comprehensive solution for larger homes",
       features: [
@@ -68,9 +63,7 @@ const PricingSection = () => {
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-2">
             No hidden fees, no surprises. Choose the plan that fits your home size.
           </p>
-          <p className="text-primary text-sm font-medium max-w-2xl mx-auto">
-            * Introductory offer, limited time only.
-          </p>
+          <p className="text-primary text-sm font-medium max-w-2xl mx-auto">* Introductory offer, limited time only.</p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mt-12">
@@ -92,32 +85,34 @@ const PricingSection = () => {
                   Most Popular
                 </div>
               )}
-              <h3 className={`font-serif text-2xl font-bold mb-2 ${
-                plan.popular ? "text-primary-foreground" : "text-foreground"
-              }`}>
+              <h3
+                className={`font-serif text-2xl font-bold mb-2 ${
+                  plan.popular ? "text-primary-foreground" : "text-foreground"
+                }`}
+              >
                 {plan.name}
               </h3>
-              <p className={`text-sm mb-6 ${
-                plan.popular ? "text-primary-foreground/80" : "text-muted-foreground"
-              }`}>
+              <p className={`text-sm mb-6 ${plan.popular ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
                 {plan.description}
               </p>
               <div className="mb-6 flex flex-col items-center">
                 {plan.originalPrice && (
-                  <span className={`text-xl line-through ${
-                    plan.popular ? "text-primary-foreground/70" : "text-muted-foreground"
-                  }`}>
+                  <span
+                    className={`text-xl line-through ${
+                      plan.popular ? "text-primary-foreground/70" : "text-muted-foreground"
+                    }`}
+                  >
                     ₹{plan.originalPrice}
                   </span>
                 )}
-                <span className={`font-serif text-5xl font-bold ${
-                  plan.popular ? "text-primary-foreground" : "text-foreground"
-                }`}>
+                <span
+                  className={`font-serif text-5xl font-bold ${
+                    plan.popular ? "text-primary-foreground" : "text-foreground"
+                  }`}
+                >
                   ₹{plan.price}
                 </span>
-                <span className={`text-sm ${
-                  plan.popular ? "text-primary-foreground/80" : "text-muted-foreground"
-                }`}>
+                <span className={`text-sm ${plan.popular ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
                   {" "}
                 </span>
               </div>
@@ -125,9 +120,7 @@ const PricingSection = () => {
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-center gap-3">
                     <Check size={18} className={plan.popular ? "text-accent" : "text-primary"} />
-                    <span className={`text-sm ${
-                      plan.popular ? "text-primary-foreground/90" : "text-foreground"
-                    }`}>
+                    <span className={`text-sm ${plan.popular ? "text-primary-foreground/90" : "text-foreground"}`}>
                       {feature}
                     </span>
                   </li>
@@ -135,10 +128,7 @@ const PricingSection = () => {
               </ul>
               <a href="#hero">
                 <Button
-                  className={`w-full ${plan.popular
-                      ? "bg-accent hover:bg-accent/90 text-accent-foreground"
-                      : ""
-                    }`}
+                  className={`w-full ${plan.popular ? "bg-accent hover:bg-accent/90 text-accent-foreground" : ""}`}
                   variant={plan.popular ? "default" : "outline"}
                 >
                   Get Started
