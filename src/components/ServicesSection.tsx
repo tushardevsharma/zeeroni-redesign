@@ -14,23 +14,26 @@ const services = [
   },
   {
     icon: Tv,
-    title: "Appliance Installation",
+    title: "Appliance Installation *",
     description: "We'll install your TV, washing machine, fridge, and other appliances so they're ready to use.",
   },
   {
     icon: ChefHat,
     title: "Kitchen Setup",
     description: "We'll unpack and organize your kitchen, so you can cook your first meal without the hassle.",
+    comingSoon: true,
   },
   {
     icon: Shirt,
     title: "Wardrobe Organization",
     description: "Your clothes are unpacked and arranged in your closets, making you feel right at home.",
+    comingSoon: true,
   },
   {
     icon: Sparkles,
     title: "The Final Touches",
     description: "We can help with small decor, hanging pictures, and making the space truly yours.",
+    comingSoon: true,
   },
 ];
 
@@ -62,8 +65,13 @@ const ServicesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group bg-card rounded-2xl p-8 border border-border/50 hover:border-primary/30 transition-all duration-300 card-shadow hover:card-shadow-hover"
+              className={`group bg-card rounded-2xl p-8 border border-border/50 hover:border-primary/30 transition-all duration-300 card-shadow hover:card-shadow-hover relative ${service.comingSoon ? 'opacity-75' : ''}`}
             >
+              {service.comingSoon && (
+                <div className="absolute top-4 right-4 px-3 py-1 bg-accent/20 text-accent text-xs font-medium rounded-full">
+                  Coming Soon
+                </div>
+              )}
               <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300">
                 <service.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
               </div>
@@ -76,6 +84,16 @@ const ServicesSection = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-sm text-muted-foreground text-center mt-8 max-w-3xl mx-auto"
+        >
+          * We will handle the basic appliance installation at your new home. However, if the new setup requires civil work like drilling holes or installing new water valves/sockets, a specialized expert will be required (which would be out of our scope).
+        </motion.p>
       </div>
     </section>
   );
