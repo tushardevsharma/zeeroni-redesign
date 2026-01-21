@@ -6,14 +6,14 @@ const PricingSection = () => {
   const plans = [
     {
       name: "1 BHK",
-      price: "9,000",
-      originalPrice: "14,000",
+      price: "8,999",
+      originalPrice: "15,000",
       description: "Perfect for studio apartments and small homes",
       features: ["Professional packing", "Safe transportation", "Unpacking & setup", "Insurance coverage"],
     },
     {
       name: "2 BHK",
-      price: "14,000",
+      price: "13,999",
       originalPrice: "24,000",
       description: "Ideal for families and medium-sized homes",
       features: [
@@ -27,7 +27,7 @@ const PricingSection = () => {
     },
     {
       name: "3 BHK",
-      price: "21,000",
+      price: "20,999",
       originalPrice: "35,000",
       description: "Comprehensive solution for larger homes",
       features: [
