@@ -3,9 +3,9 @@ import { MapPin, ArrowRight } from "lucide-react";
 
 const PricingHighlight = () => {
   const plans = [
-    { name: "1 BHK", price: "9K", originalPrice: "14K" },
-    { name: "2 BHK", price: "14K", originalPrice: "24K" },
-    { name: "3 BHK", price: "19K", originalPrice: "35K" },
+    { name: "1 BHK", price: "8,999", originalPrice: "15,000" },
+    { name: "2 BHK", price: "13,999", originalPrice: "24,000" },
+    { name: "3 BHK", price: "20,999", originalPrice: "35,000" },
   ];
 
   return (
@@ -41,11 +41,11 @@ const PricingHighlight = () => {
                 }`}
               >
                 <span className="text-xs sm:text-sm">{plan.name}</span>
-                <div className="flex items-center gap-1">
+                <div className="flex flex-col items-center">
                   {plan.originalPrice && (
                     <span className="text-[10px] line-through text-primary-foreground/70">₹{plan.originalPrice}</span>
                   )}
-                  <span className="font-bold">₹{plan.price}</span>
+                  <span className="font-bold text-xs sm:text-sm">₹{plan.price}</span>
                 </div>
               </div>
             ))}
