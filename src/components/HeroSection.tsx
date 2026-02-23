@@ -261,10 +261,9 @@ const HeroSection = () => {
                       <SelectValue placeholder="Select Move Size" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="1bhk">1 BHK</SelectItem>
-                      <SelectItem value="2bhk">2 BHK</SelectItem>
-                      <SelectItem value="3bhk">3 BHK</SelectItem>
-                      <SelectItem value="4bhk">4 BHK</SelectItem>
+                      <SelectItem value="small">Small Home</SelectItem>
+                      <SelectItem value="medium">Medium Home</SelectItem>
+                      <SelectItem value="large">Large Home</SelectItem>
                       <SelectItem value="villa">Villa / Bungalow</SelectItem>
                     </SelectContent>
                   </Select>
