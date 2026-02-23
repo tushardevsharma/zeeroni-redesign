@@ -3,9 +3,9 @@ import { MapPin, ArrowRight } from "lucide-react";
 
 const PricingHighlight = () => {
   const plans = [
-    { name: "1 BHK", price: "8,999", originalPrice: "15,000" },
-    { name: "2 BHK", price: "13,999", originalPrice: "24,000" },
-    { name: "3 BHK", price: "20,999", originalPrice: "35,000" },
+    { name: "Small Home", price: "8,999", originalPrice: "15,000" },
+    { name: "Medium Home", price: "13,999", originalPrice: "24,000" },
+    { name: "Large Home", price: "20,999", originalPrice: "35,000" },
   ];
 
   return (
