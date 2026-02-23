@@ -8,14 +8,14 @@ const PricingSection = () => {
       name: "Small Home",
       price: "8,999",
       originalPrice: "15,000",
-      description: "Studios & 1 BHK apartments",
+      description: "Studios & compact apartments",
       features: ["Up to 500 sq ft", "Up to 50 items", "Basic furniture handling", "Standard packing"],
     },
     {
       name: "Medium Home",
       price: "13,999",
       originalPrice: "24,000",
-      description: "2 BHK apartments & small houses",
+      description: "Mid-sized apartments & small houses",
       features: [
         "Up to 1,000 sq ft",
         "Up to 120 items",
@@ -29,7 +29,7 @@ const PricingSection = () => {
       name: "Large Home",
       price: "20,999",
       originalPrice: "35,000",
-      description: "3+ BHK homes & villas",
+      description: "Spacious homes & villas",
       features: [
         "1,000+ sq ft",
         "Up to 200 items",
