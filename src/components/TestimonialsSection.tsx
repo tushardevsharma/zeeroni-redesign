@@ -3,21 +3,18 @@ import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Sanjeev",
-    move: "3BHK · BTM → Sarjapur",
+    move: "BTM Layout → Sarjapur Road",
     short: "Shifting was not stressful & it was properly handled by trained staff who thoroughly did their job, although being difficult, without a frown or displeasure. I would certainly recommend to others for the professional & on-time service.",
     highlight: "Professional & on-time service",
   },
   {
-    name: "Startup Founder",
-    move: "Cross-city relocation",
+    move: "Koramangala → Whitefield",
     short:
       "I hired Zeeroni fully prepared for a struggle, but I couldn't have been more wrong. Not only did they drive the labor (instead of the other way around), but the entire process stayed seamless from start to finish. If you want a move that actually respects your time and sanity, I highly recommend this team.",
     highlight: "They drive the labor, not the other way around",
   },
   {
-    name: "Gadget Enthusiast",
-    move: "3+1 BHK · Bangalore",
+    move: "Indiranagar → Electronic City",
     short:
       "I own expensive equipment — an 8K TV, Dyson range, PlayStation — and my biggest worry was safeguarding my belongings. When the team faced unanticipated issues like no truck access to the lift and a higher load than planned, they did not create a ruckus or ask for additional money. What the invoice says is exactly what you pay.",
     highlight: "You pay exactly what you sign up for",
@@ -81,8 +78,7 @@ const TestimonialsSection = () => {
               </div>
 
               <div className="border-t border-primary-foreground/10 pt-4 mt-auto">
-                <p className="font-semibold text-sm">{t.name}</p>
-                <p className="text-primary-foreground/60 text-xs">{t.move}</p>
+                <p className="font-semibold text-sm">{t.move}</p>
               </div>
             </motion.div>
           ))}
