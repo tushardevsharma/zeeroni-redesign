@@ -12,8 +12,8 @@ const testimonials = [
     persona: "Startup Founder",
     move: "Koramangala → Whitefield",
     short:
-      "I hired Zeeroni fully prepared for a struggle, but I couldn't have been more wrong. Not only did they drive the labor (instead of the other way around), but the entire process stayed seamless from start to finish. If you want a move that actually respects your time and sanity, I highly recommend this team.",
-    highlight: "They drive the labor, not the other way around",
+      "I hired Zeeroni fully prepared for a struggle, but I couldn't have been more wrong. Not only did they drive the crew (instead of the other way around), but the entire process stayed seamless from start to finish. If you want a move that actually respects your time and sanity, I highly recommend this team.",
+    highlight: "A move that respects your time and sanity",
   },
   {
     persona: "Gadget Enthusiast",
