@@ -12,14 +12,14 @@ const testimonials = [
     name: "Startup Founder",
     move: "Cross-city relocation",
     short:
-      "I hired Zeeroni fully prepared for a struggle, but I couldn't have been more wrong. Not only did they drive the labor (instead of the other way around), but the founders themselves were on-site at both locations to ensure the process stayed seamless. If you want a move that actually respects your time and sanity, I highly recommend this team.",
-    highlight: "Founders on-site at both locations",
+      "I hired Zeeroni fully prepared for a struggle, but I couldn't have been more wrong. Not only did they drive the labor (instead of the other way around), but the entire process stayed seamless from start to finish. If you want a move that actually respects your time and sanity, I highly recommend this team.",
+    highlight: "They drive the labor, not the other way around",
   },
   {
     name: "Gadget Enthusiast",
     move: "3+1 BHK · Bangalore",
     short:
-      "What stood out was that while I was taking my pets for an early morning walk, Suja and Tushar were already at the gate. Imagine the highest authority reaching your place before the moving staff or the truck! During packing and unpacking, one or both of them were supervising everything. It literally made my presence redundant.",
+      "I own expensive equipment — an 8K TV, Dyson range, PlayStation — and my biggest worry was safeguarding my belongings. When the team faced unanticipated issues like no truck access to the lift and a higher load than planned, they did not create a ruckus or ask for additional money. What the invoice says is exactly what you pay.",
     highlight: "You pay exactly what you sign up for",
     extra:
       "They were cautious with my stuff, even during dismantling. The whole team is trained to operate this way. There were no hidden charges or hassles over tips at the end.",
